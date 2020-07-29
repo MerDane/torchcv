@@ -13,9 +13,9 @@ import torch
 import torch.backends.cudnn as cudnn
 
 from runner.runner_selector import RunnerSelector
-from runner.tools.controller import Controller
-from tools.util.configer import Configer
-from tools.util.logger import Logger as Log
+from lib.runner.controller import Controller
+from lib.tools.util.configer import Configer
+from lib.tools.util.logger import Logger as Log
 
 
 def str2bool(v):
@@ -55,6 +55,8 @@ if __name__ == "__main__":
                         dest='train.batch_size', help='The batch size of training.')
     parser.add_argument('--val_batch_size', default=None, type=int,
                         dest='val.batch_size', help='The batch size of validation.')
+    parser.add_argument('--test_batch_size', default=None, type=int,
+                        dest='test.batch_size', help='The batch size of testing.')
 
     # ***********  Params for model.  **********
     parser.add_argument('--model_name', default=None, type=str,
